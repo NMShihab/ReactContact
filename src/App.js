@@ -22,12 +22,18 @@ const App = () => {
     }
   ]) 
 // DELETE CONTACT
-
+  const deleteContact = (id) =>{
+    setContacts(contacts.filter((contact)=> contact.id !== id))
+  }
 
   return (
     <div className="container">
       <Header />
-      <Contacts contacts = {contacts}/>
+      {contacts.length >0 ?
+      ( <Contacts contacts = {contacts} onDelete = {deleteContact}/>)  
+      :(
+        'No Contact here'
+      )}
       
       
     </div>
