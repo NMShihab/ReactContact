@@ -26,11 +26,22 @@ const App = () => {
     setContacts(contacts.filter((contact)=> contact.id !== id))
   }
 
+  // Toggle Reminder
+  const toggleReminder = (id) =>{
+    setContacts(contacts.map((contact) => contact.id === id
+                ? {...contact,reminder: !contact.reminder }: contact
+                  )
+                )
+   
+
+
+  }
+
   return (
     <div className="container">
       <Header />
       {contacts.length >0 ?
-      ( <Contacts contacts = {contacts} onDelete = {deleteContact}/>)  
+      ( <Contacts contacts = {contacts} onDelete = {deleteContact} onToggle = {toggleReminder}/>)  
       :(
         'No Contact here'
       )}

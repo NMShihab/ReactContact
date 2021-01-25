@@ -1,9 +1,10 @@
 import React from 'react'
 import {AiFillDelete} from 'react-icons/ai'
 
-const Contact = ({contact, onDelete}) => {
+const Contact = ({contact, onDelete, onToggle}) => {
     return (
-        <div className= 'contact'>
+        <div className= {`contact ${contact.reminder ?
+            'reminder' : ''}`} onDoubleClick = {() => onToggle(contact.id)}>
             <h3>
                 {contact.name} 
                 <AiFillDelete 
