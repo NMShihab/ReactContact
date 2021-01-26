@@ -19,7 +19,7 @@ const App = () => {
 
   // Fetch Contacts
   const fetchContact = async () =>{
-      const res = await fetch('http://localhost:5000/contacts')
+      const res = await fetch('http://127.0.0.1:1234/contacts')
       const data = await res.json()
 
       return data
@@ -30,32 +30,29 @@ const App = () => {
     // const id = Math.floor(Math.random() * 1000 + 1 )
     // const newContact = {id,...contact}
     // setContacts([...contacts,newContact])
-    const res = await fetch('http://localhost/5000/contacts',{
+    const res = await fetch('http://127.0.0.1:1234/contacts',{
       method : 'POST',
       headers :{
-        'Content-type':'application.json'
+        'Content-type':'application/json',
       },
-      body : JSON.stringify(contact)
-                  
+      body : JSON.stringify(contact),     
     })
-
+    
+    
     const data = await res.json()
     setContacts([...contacts,data])
-    console.log(data)
+    
     
   }
 
 // DELETE CONTACT
   const deleteContact = async (id) =>{
-    await fetch(`http://localhost:5000/contacts/$
-    {id}`,{
+    await fetch(`http://localhost:1234/contacts/`+id,{
       method : 'DELETE',
 
     })
-    setContacts(contacts.filter((contact)=>
-     contact.id !== id
-      )    
-    )
+    console.log(id)
+    setContacts(contacts.filter((contact) => contact.id !== id))
   }
 
   // Toggle Reminder
