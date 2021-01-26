@@ -18,7 +18,7 @@ const AddContact = ({ onAdd }) => {
 
             </div>
 
-            <input type="submit" placeholder = 'Save' className = 'btn btn-block'/>
+            <input type="submit" placeholder = "Save" className = 'btn btn-block'/>
             
         </form>
     )
