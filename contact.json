@@ -1,12 +1,10 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "N. M. Shihab Islam"
-    },
-    {
-      "name": "Khadizatul Kubra",
-      "id": 2
+      "name": "N. M. Shihab Islam",
+      "phn": "01200000000",
+      "email": "nm@gmail.com",
+      "id": 1
     }
   ]
 }

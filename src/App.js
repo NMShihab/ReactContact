@@ -1,7 +1,10 @@
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Contacts from './components/Contacts'
 import AddContact from './components/AddContact'
+import Footer from './components/Footer'
+import About from './components/About';
 import {useState, useEffect} from 'react'
 
 const App = () => {
@@ -65,18 +68,33 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <Header onAdd = {() => setShowAddContact(!showAddContact)}
-          showAdd = {showAddContact}/>
-      {showAddContact && <AddContact onAdd = { addContact }/>}
-      {contacts.length >0 ?
-      ( <Contacts contacts = {contacts} onDelete = {deleteContact} onToggle = {toggleReminder}/>)  
-      :(
-        'No Contact here'
-      )}
-      
-      
-    </div>
+    <Router>
+      <div className="container">
+        <Header onAdd = {() => setShowAddContact(!showAddContact)}
+            showAdd = {showAddContact}/>
+        
+
+        <Route path ='/' exact render = {(props)=>(
+          <>
+            {showAddContact && <AddContact onAdd = { addContact }/>}
+            {contacts.length >0 ?
+            ( <Contacts contacts = {contacts} onDelete = {deleteContact} onToggle = {toggleReminder}/>)  
+            :(
+            'No Contact here'
+        )}
+
+          </>
+        )
+        
+        } />
+
+        <Route path = '/about' component = {About} />
+
+        <Footer />
+        
+        
+      </div>
+    </Router>
   );
 }
 

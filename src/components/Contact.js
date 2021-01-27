@@ -6,14 +6,15 @@ const Contact = ({contact, onDelete, onToggle}) => {
         <div className= {`contact ${contact.reminder ?
             'reminder' : ''}`} onDoubleClick = {() => onToggle(contact.id)}>
             <h3>
-                {contact.name} 
+                {contact.name}             
                 <AiFillDelete 
                     style = {{color : 'red', cursor: 'pointer'}}
                     
                     onClick ={() => onDelete(contact.id)}
-                />
-            
+                />           
             </h3>
+            <p>{contact.phn}</p>
+            <p>{contact.email}</p>
             
         </div>
     )
